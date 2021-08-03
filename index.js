@@ -10,14 +10,9 @@ const token = 'Y3Jvd2Q6enhjMTIzWkA=';
 // ROUTE ==============================================================
 
 // create Jira guest User
-app.post('/user/guest', async (req, res) => {
-  handle(req, ['jira-guest'])
-  res.sendStatus(201)
-})
-
-// create Jira Soft
-app.post('/user/soft', async (req, res) => {
-  handle(req, ['jira-guest'])
+app.post('/user', async (req, res) => {
+  const groups = req.query.group
+  handle(req, groups)
   res.sendStatus(201)
 })
 
